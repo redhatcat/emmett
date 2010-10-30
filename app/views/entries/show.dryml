@@ -1,0 +1,6 @@
+<show-page title="&name">
+  <description: replace>
+    <%= this.body.html_safe %>
+  </description:>
+  <field-list: replace/>
+</show-page>

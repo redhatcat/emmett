@@ -10,6 +10,9 @@
 
 <extend tag="page">
   <old-page merge>
+    <append-stylesheets:>
+      <theme-stylesheet name="emmett"/>
+    </append-stylesheets:>
     <footer:>
       <a href="&admin_users_url" if="&current_user.administrator?">Admin</a>
     </footer:>

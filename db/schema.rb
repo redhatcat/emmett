@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030142246) do
+ActiveRecord::Schema.define(:version => 20101030150301) do
+
+  create_table "entries", :force => true do |t|
+    t.string   "name"
+    t.text     "body_text"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "text_format_id"
+  end
+
+  add_index "entries", ["text_format_id"], :name => "index_entries_on_text_format_id"
+
+  create_table "text_formats", :force => true do |t|
+    t.string   "name"
+    t.string   "class_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40
