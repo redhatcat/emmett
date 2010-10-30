@@ -1,0 +1,5 @@
+<index-page without-new-form>
+  <after-count:>
+    <a with="&User" action="invite">Invite a new user</a>
+  </after-count:>
+</index-page>
