@@ -6,13 +6,14 @@
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
 
+<include src="taglibs/emmett/cards"/>
+<include src="taglibs/emmett/forms"/>
+<include src="taglibs/emmett/tags"/>
+
 <set-theme name="clean"/>
 
 <extend tag="page">
   <old-page merge>
-    <append-stylesheets:>
-      <theme-stylesheet name="emmett"/>
-    </append-stylesheets:>
     <footer:>
       <a href="&admin_users_url" if="&current_user.administrator?">Admin</a>
     </footer:>

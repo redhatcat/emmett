@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030150301) do
+ActiveRecord::Schema.define(:version => 20101030171010) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "body"
+    t.boolean  "is_public"
+    t.string   "posted_from_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "entry_id"
+  end
+
+  add_index "comments", ["entry_id"], :name => "index_comments_on_entry_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "entries", :force => true do |t|
     t.string   "name"
@@ -19,9 +32,29 @@ ActiveRecord::Schema.define(:version => 20101030150301) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "text_format_id"
+    t.datetime "publish_on_date"
+    t.string   "tag_string"
+    t.integer  "user_id"
   end
 
   add_index "entries", ["text_format_id"], :name => "index_entries_on_text_format_id"
+  add_index "entries", ["user_id"], :name => "index_entries_on_user_id"
+
+  create_table "tag_assignments", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "entry_id"
+    t.integer  "tag_id"
+  end
+
+  add_index "tag_assignments", ["entry_id"], :name => "index_tag_assignments_on_entry_id"
+  add_index "tag_assignments", ["tag_id"], :name => "index_tag_assignments_on_tag_id"
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "text_formats", :force => true do |t|
     t.string   "name"

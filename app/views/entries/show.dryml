@@ -1,4 +1,10 @@
-<show-page title="&name">
+<show-page title="&name" without-parent-link without-creator-link>
+  <append-stylesheets:>
+    <theme-stylesheet name="emmett"/>
+  </append-stylesheets:>
+  <append-content-header:>
+    <entry-info/>
+  </append-content-header:>
   <description: replace>
     <%= this.body.html_safe %>
   </description:>

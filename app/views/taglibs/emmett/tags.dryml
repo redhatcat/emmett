@@ -1,0 +1,17 @@
+<def tag="tags-menu">
+  <h2>Entries by Tag</h2>
+  <collection with="&Tag.with_tag_assignments()"/>
+</def>
+
+<!-- For some reason, hobo will not take just &this.tags at this point in time -->
+<def tag="entry-info">
+  <div>
+    <a action="edit" if="&can_edit?">[Edit]</a>
+    Posted by <a:user/> on <view:publish-on-date format="%B %d, %Y %H:%M"/>
+  </div>
+  <div>
+    Tags:
+    <links-for-collection with="&this.tags.where('1 = 1')"/>
+  </div>
+</def>
+

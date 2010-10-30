@@ -2,24 +2,13 @@
 # e.g.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      entry:
+        name: Title
+        body_text: Body
+        tag_string: Tags
+    attribute_help:
+      entry:
+        tag_string: "Separate tags with commas ','.  Spaces are allowed."
 
-#  attributes:
-#    created_at: Created at
-#    updated_at: Updated at
-#
-#  activerecord:
-#    models:
-#      user:
-#        one: User
-#        other: Users
-#    attributes:
-#      user:
-#        created_at: Created at
-#        name: Name
-#        password: Password
-#        password_confirmation: Password Confirmation
-#        email_address: Email Address
-#    attribute_help:
-#      user:
-#        email_address: We will never share your address with third parties
