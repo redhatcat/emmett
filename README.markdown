@@ -1,3 +1,15 @@
+Features
+--------
+
+* Multiple text formatting options
+    * Plain text
+    * HTML
+    * BBCode
+    * Markdown
+    * Textile
+* TODO Commenting with Akismet spam filtering
+* TODO Tagging
+
 Installing
 ----------
 
