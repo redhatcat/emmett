@@ -27,7 +27,7 @@ class Comment < ActiveRecord::Base
   end
 
   def notify_entry_user
-    # TODO EmmettMailer.deliver_new_comment(self)
+    EmmettMailer.deliver_new_comment(self)
   end
 
   # --- Permissions --- #
