@@ -19,9 +19,15 @@ html, body {color: #193440; background: #FF9640; }
   background: #FF9640;
 }
 .section.content {background: #FCFFF5;}
+.transition-button,
 .button {color: white; background: #FF7400;}
+.transition-button:hover,
 .button:hover {background-color: #193440;}
-.add-to-collection {background: #E6E7DE;}
+.add-to-collection {
+    background: #FED;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+}
 .aside { background: #FFD091;}
 
 /* Column Layout */
@@ -54,7 +60,7 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	color: black; background: #f2f2f2;
+	color: black;
 }
 
 em, strong { color: #A00;}
@@ -77,6 +83,7 @@ input.file_upload {
 	border: 1px dotted #666;
 }
 
+.transition-button,
 .button {
 	padding: 6px 10px;
 	border: none;
@@ -84,6 +91,7 @@ input.file_upload {
 	font-size: 11px; font-weight: bold;
 	margin-top: 10px;
 }
+.transition-button:hover,
 .button:hover {cursor: pointer;}
 form .actions {_zoom: 1; overflow: hidden; font-size: 11px;}
 form .actions input { margin: 0; }
