@@ -10,7 +10,7 @@ Features
     * Textile
 * Commenting with Akismet spam filtering
 * Tagging
-* TODO Publishing lifecycle
+* Publishing lifecycle
 
 Installing
 ----------
