@@ -10,7 +10,7 @@
 <include src="taglibs/emmett/forms"/>
 <include src="taglibs/emmett/tags"/>
 
-<set-theme name="clean"/>
+<set-theme name="mikan"/>
 
 <extend tag="page">
   <old-page merge>
