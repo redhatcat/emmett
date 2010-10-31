@@ -10,5 +10,6 @@ en:
         tag_string: Tags
     attribute_help:
       entry:
+        publish_on_date: "This post will not be publicly viewable before this time."
         tag_string: "Separate tags with commas ','.  Spaces are allowed."
 
