@@ -1,0 +1,8 @@
+<edit-page>
+  <append-stylesheets:>
+    <theme-stylesheet name="emmett"/>
+  </append-stylesheets:>
+  <append-content-body:>
+    <div id="preview"></div>
+  </append-content-body:>
+</edit-page>

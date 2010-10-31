@@ -7,5 +7,8 @@
 <extend tag="form" for="Entry">
   <old-form merge>
     <field-list: fields="name, publish_on_date, body_text, text_format, tag_string, user"/>
+    <prepend-actions:>
+      <%= button_to_function "Preview Entry", "Emmett.preview(this.form);", :class => 'button' %>
+    </prepend-actions:>
   </old-form>
 </extend>
