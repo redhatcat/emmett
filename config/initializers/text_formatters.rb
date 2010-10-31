@@ -1,4 +1,5 @@
 require 'bbcode_formatter'
+require 'rdoc_formatter'
 
 [
   ['Plain Text', 'HoboFields::Types::Text'],
@@ -6,6 +7,7 @@ require 'bbcode_formatter'
   ['HTML', 'HoboFields::Types::HtmlString'],
   ['Markdown (Maruku)', 'Maruku'],
   ['Markdown (BlueCloth)', 'BlueCloth'],
+  ['RDoc', 'RdocFormatter'],
   ['Textile (RedCloth)', 'RedCloth'],
 ].each do |name, class_name|
   format = TextFormat.find_by_class_name(class_name)
