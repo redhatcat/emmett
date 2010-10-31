@@ -17,7 +17,26 @@ class Entry < ActiveRecord::Base
   has_many :tag_assignments, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
-  default_scope order('name')
+  default_scope order('publish_on_date DESC')
+
+  named_scope :viewable, lambda {|acting_user|
+    if !acting_user.administrator?
+      {
+        :conditions => ["state = 'published' and publish_on_date < ?",
+          DateTime.now],
+      }
+    else
+      {}
+    end
+  }
+
+  lifecycle do
+    state :drafted, :default => true
+    state :published
+
+    transition :publish, {:drafted => :published}, :available_to => :user
+    transition :unpublish, {:published => :drafted}, :available_to => :user
+  end
 
   before_save :format_text
   before_save :save_tags
@@ -59,7 +78,7 @@ class Entry < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    true
+    acting_user.administrator? or (state == 'published' and publish_on_date <= DateTime.now)
   end
 
 end

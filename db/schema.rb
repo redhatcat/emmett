@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030171010) do
+ActiveRecord::Schema.define(:version => 20101031164152) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -35,8 +35,11 @@ ActiveRecord::Schema.define(:version => 20101030171010) do
     t.datetime "publish_on_date"
     t.string   "tag_string"
     t.integer  "user_id"
+    t.string   "state",           :default => "drafted"
+    t.datetime "key_timestamp"
   end
 
+  add_index "entries", ["state"], :name => "index_entries_on_state"
   add_index "entries", ["text_format_id"], :name => "index_entries_on_text_format_id"
   add_index "entries", ["user_id"], :name => "index_entries_on_user_id"
 
