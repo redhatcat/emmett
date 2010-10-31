@@ -9,6 +9,7 @@ Features
         * includes syntax highlighting
     * RDoc
     * Textile
+* Post previewing for all above markups
 * Commenting with Akismet spam filtering
 * Tagging
 * Publishing lifecycle
