@@ -7,8 +7,9 @@ Features
     * BBCode
     * Markdown
     * Textile
-* TODO Commenting with Akismet spam filtering
-* TODO Tagging
+* Commenting with Akismet spam filtering
+* Tagging
+* TODO Publishing lifecycle
 
 Installing
 ----------
