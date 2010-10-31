@@ -6,6 +6,7 @@ Features
     * HTML
     * BBCode
     * Markdown
+        * includes syntax highlighting
     * Textile
 * Commenting with Akismet spam filtering
 * Tagging
