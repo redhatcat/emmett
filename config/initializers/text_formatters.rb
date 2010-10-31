@@ -1,11 +1,9 @@
 require 'bbcode_formatter'
-require 'html_formatter'
-require 'plain_text_formatter'
 
 [
-  ['Plain Text', 'PlainTextFormatter'],
+  ['Plain Text', 'HoboFields::Types::Text'],
   ['BBCode (BBRuby)', 'BbcodeFormatter'],
-  ['HTML', 'HtmlFormatter'],
+  ['HTML', 'HoboFields::Types::HtmlString'],
   ['Markdown (Maruku)', 'Maruku'],
   ['Markdown (BlueCloth)', 'BlueCloth'],
   ['Textile (RedCloth)', 'RedCloth'],
