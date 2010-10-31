@@ -38,5 +38,11 @@ module Emmett
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Emmett configuration
+    emmett_config = YAML.load_file(File.join(Rails.root, 'config', 'emmett.yml'))
+    config.rakismet.key = emmett_config['rakismet']['key']
+    config.rakismet.url = emmett_config['rakismet']['url']
+    config.rakismet.host = emmett_config['rakismet']['host'] || 'rest.akismet.com'
   end
 end

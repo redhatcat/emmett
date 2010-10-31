@@ -13,3 +13,4 @@ gem 'RedCloth'
 
 # Extras
 gem 'syntax' # for maruku syntax highlighting
+gem 'rakismet' # for comment spam filtering

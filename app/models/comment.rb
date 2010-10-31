@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
-
-  hobo_model # Don't put anything above this
+  include Rakismet::Model # Must go first.
+  # Hobo makes all following mixin InstanceMethods private for some reason.
+  hobo_model
 
   fields do
     body           :text, :required, :primary_content => true
@@ -15,9 +16,14 @@ class Comment < ActiveRecord::Base
   before_create :check_for_spam
   after_create :notify_entry_user
 
+  rakismet_attrs :author => proc { user.name },
+                 :author_email => proc { user.email_address },
+                 :comment_type => 'comment',
+                 :user_ip => :posted_from_ip,
+                 :content => :body
+
   def check_for_spam
-    #TODO self.is_public = !self.spam?
-    self.is_public = true
+    self.is_public = !self.spam?
   end
 
   def notify_entry_user

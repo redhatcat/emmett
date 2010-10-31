@@ -1,0 +1,4 @@
+rakismet:
+  key: 'XXXXXXXXXXXX'
+  url: 'http://www.example.com/'
+  host: 'rest.akismet.com'

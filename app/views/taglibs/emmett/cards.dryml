@@ -2,9 +2,17 @@
   <old-card merge>
     <body:>
       <div>
-        On <view:created_at/>, <a:user/> said:
+        On <view:created_at format="%B %d, %Y %H:%M"/>, <a:user/> said:
       </div>
       <view:body/>
+      <div if="&current_user.administrator?">
+        <div>
+          Is Public: <editor:is_public/>
+        </div>
+        <div>
+          Posted from IP: <view:posted_from_ip/>
+        </div>
+      </div>
     </body:>
   </old-card>
 </extend>
