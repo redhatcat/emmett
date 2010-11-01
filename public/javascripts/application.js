@@ -5,7 +5,7 @@ Emmett = {
   preview: function (form) {
     $('preview').update(
       '<img src="/images/spinner.gif" alt=""/> Loading preview...');
-    new Ajax.Request('/entries/5-rdoc-test', {
+    new Ajax.Request(form.action, {
       parameters: form.serialize() + '&preview=1',
       onSuccess: function (response) {
         $('preview').update(response.responseText);
