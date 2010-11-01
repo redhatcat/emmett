@@ -1,3 +1,4 @@
+email_from: noreply@www.example.com
 rakismet:
   key: 'XXXXXXXXXXXX'
   url: 'http://www.example.com/'
