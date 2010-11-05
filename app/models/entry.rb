@@ -1,3 +1,4 @@
+# Model of a blog entry
 class Entry < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
@@ -41,6 +42,8 @@ class Entry < ActiveRecord::Base
   before_save :format_text
   before_save :save_tags
 
+  # Compile body_html from body using our assigned formatter_class
+  # This is a before_save filter.
   def format_text
     if text_format
       begin
@@ -56,6 +59,8 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  # Decompose tag_string into Tag relations
+  # This is a before_save filter.
   def save_tags
     new_tags = tag_string.split(',').collect{ |name|
       Tag.find_or_create_by_name(name.strip)
@@ -65,19 +70,19 @@ class Entry < ActiveRecord::Base
 
   # --- Permissions --- #
 
-  def create_permitted?
+  def create_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def update_permitted?
+  def update_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def destroy_permitted?
+  def destroy_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def view_permitted?(field)
+  def view_permitted?(field) # :nodoc:
     acting_user.administrator? or (state == 'published' and publish_on_date <= DateTime.now)
   end
 

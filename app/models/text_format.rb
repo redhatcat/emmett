@@ -1,3 +1,4 @@
+# Model of a blog entry text format
 class TextFormat < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
@@ -14,19 +15,19 @@ class TextFormat < ActiveRecord::Base
 
   # --- Permissions --- #
 
-  def create_permitted?
+  def create_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def update_permitted?
+  def update_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def destroy_permitted?
+  def destroy_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def view_permitted?(field)
+  def view_permitted?(field) # :nodoc:
     true
   end
 

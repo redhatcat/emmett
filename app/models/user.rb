@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base # :nodoc:
 
   hobo_user_model # Don't put anything above this
 

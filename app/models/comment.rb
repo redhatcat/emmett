@@ -1,3 +1,4 @@
+# Model of a blog comment
 class Comment < ActiveRecord::Base
   include Rakismet::Model # Must go first.
   # Hobo makes all following mixin InstanceMethods private for some reason.
@@ -22,29 +23,33 @@ class Comment < ActiveRecord::Base
                  :user_ip => :posted_from_ip,
                  :content => :body
 
+  # Ask akismet if this comment is spam and set is_public to false if it is.
+  # This is a before_create filter
   def check_for_spam
     self.is_public = !self.spam?
   end
 
+  # Send an email to the post's author after a new comment is made.
+  # This is an after_create filter.
   def notify_entry_user
     EmmettMailer.deliver_new_comment(self)
   end
 
   # --- Permissions --- #
 
-  def create_permitted?
+  def create_permitted? # :nodoc:
     acting_user.signed_up?
   end
 
-  def update_permitted?
+  def update_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def destroy_permitted?
+  def destroy_permitted? # :nodoc:
     acting_user.administrator?
   end
 
-  def view_permitted?(field)
+  def view_permitted?(field) # :nodoc:
     if self.is_public
       true
     else
