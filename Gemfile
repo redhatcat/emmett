@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 # Core
 gem 'rails', '3.0.1'
 gem 'pg'
-gem "hobo", ">= 1.3.0.pre14"
+gem "hobo", ">= 1.3.0.pre15"
 
 # Formatters
 gem 'bb-ruby'
